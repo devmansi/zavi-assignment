@@ -1,10 +1,10 @@
 import { faker } from "@faker-js/faker";
-import { FaStar, FaRegStar } from "react-icons/fa";
+import { FaStar } from "react-icons/fa";
 
 const MAX_RATING = 5;
 const MIN_RATING = 1;
 
-export const getBrandsName = () => {
+const getBrandsName = () => {
   const brandData = [];
 
   for (let i = 0; i < 2; i++) {
@@ -16,7 +16,7 @@ export const getBrandsName = () => {
   return brandData;
 };
 
-export const getRatings = () => {
+const getRatings = () => {
   const ratingData = [];
   let array = [];
   let count1 = 5;
@@ -25,10 +25,10 @@ export const getRatings = () => {
   for (let i = 5; i > 0; i--) {
     array = [];
     for (let j = count1; j > 0; j--) {
-      array.push(<FaStar />);
+      array.push(<FaStar className="star-filled star" />);
     }
     for (let k = count2; k > 0; k--) {
-      array.push(<FaRegStar />);
+      array.push(<FaStar className="star-empty star" />);
     }
     count1 = count1 - 1;
     count2 = count2 + 1;
@@ -37,7 +37,7 @@ export const getRatings = () => {
   return ratingData;
 };
 
-export const getTrends = () => {
+const getTrends = () => {
   const trends = [];
 
   for (let i = 0; i < 5; i++) {
@@ -54,7 +54,7 @@ export const getTrends = () => {
   return trends;
 };
 
-export const getSuggestions = () => {
+const getSuggestions = () => {
   const suggestions = [];
 
   for (let i = 0; i < 5; i++) {
@@ -86,4 +86,8 @@ const getProducts = () => {
   return products;
 };
 
-export const ProductData = getProducts();
+export const brandsData = getBrandsName();
+export const trendsData = getTrends();
+export const suggestionsData = getSuggestions();
+export const productsData = getProducts();
+export const ratingsData = getRatings();

@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
 
-function App() {
+import Search from "./components/Search";
+import ProductList from "./components/ProductList";
+import { productsData } from "./data";
+import Logo from "./Logo";
+
+export default function App() {
+  const [products, setProducts] = React.useState([]);
+
+  function onProductSearch() {
+    setProducts(productsData);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main className={products.length > 0 ? "" : "background"}>
+      <div
+        className={`logo-searchbar-container ${
+          products.length > 0 ? "product-logo-searchbar-container" : ""
+        }`}
+      >
+        <Logo />
+        <Search onProductSearch={onProductSearch} />
+      </div>
+      {products.length > 0 && <ProductList product={products} />}
+    </main>
   );
 }
-
-export default App;

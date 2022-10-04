@@ -1,13 +1,294 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root {
+  font-size: 62.5%;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+}
+
+.background {
+  min-height: 100vh;
+  background: linear-gradient(
+      rgba(215, 224, 255, 0.26),
+      rgba(215, 224, 255, 0.26)
+    ),
+    url("./Images/priscilla-du-preez-dlxLGIy-2VU-unsplash.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.home-page {
+  padding-bottom: 4.8rem;
+  position: relative;
+}
+
+.logo-searchbar-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding-top: 4rem;
+}
+
+/* LOGO */
+
+.logo-container {
+  justify-self: end;
+  padding-right: 4rem;
+}
+
+.logo {
+  width: 9rem;
+  justify-self: end;
+}
+
+/* SEARCH */
+
+.search-bar {
+  position: relative;
+  justify-self: center;
+  margin: 7.7rem 0 2rem;
+}
+
+.search {
+  width: 91.5rem;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 2.8rem;
+  border-radius: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 1.8rem 6.2rem 1.8rem 4rem;
+}
+
+.search:focus-visible {
+  outline: transparent;
+}
+
+.search-icon {
+  font-size: 3.2rem;
+  color: #200e3266;
+  position: absolute;
+  right: 25px;
+  top: 20px;
+}
+
+.search-icon:hover {
+  cursor: pointer;
+}
+
+/* trending-popular-modal */
+
+.trending-popular-modal {
+  padding: 4rem 4rem 8.8rem;
+  margin: 1.7rem 24.4rem 0;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.25);
+  position: absolute;
+  z-index: 1;
+}
+
+.productary-heading {
+  margin-bottom: 2.4rem;
+  font-weight: 500;
+  font-size: 2.2rem;
+}
+
+.trending-section {
+  margin-bottom: 4rem;
+}
+
+.trending-clothes-container {
+  display: flex;
+  gap: 2.4rem;
+}
+
+.trending-cloth-description {
+  font-size: 1.4rem;
+  font-weight: 300;
+  margin-top: 1.4rem;
+}
+
+.popular-suggestions {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.suggestion-str {
+  font-size: 1.6rem;
+  font-weight: 400;
+}
+
+.suggestion-str:hover {
+  cursor: pointer;
+  color: darkblue;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+/* product page */
+
+.product-logo-searchbar-container {
+  grid-template-rows: 0;
+  gap: 0;
+  margin-bottom: 6.2rem;
+}
+
+.sidebar-heading {
+  font-weight: 400;
+  font-size: 4rem;
+  margin-bottom: 3.2rem;
+}
+
+.product-filters-container {
+  padding: 0 4rem 0 6.5rem;
+}
+
+.filter-heading {
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 2rem;
+}
+
+.filter-name {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2.6rem;
+}
+
+.product-article {
+  display: grid;
+  grid-template-columns: 230px 1fr;
+  gap: 8.3rem;
+  margin-bottom: 4.8rem;
+}
+
+.filter-heading {
+  align-self: flex-end;
+  color: #2f3037;
+}
+
+.filterItems {
+  display: flex;
+  gap: 1.6rem;
+  flex-direction: column;
+  list-style: none;
+}
+
+.filterItems li {
+  display: flex;
+  gap: 1rem;
+}
+
+.filter-item {
+  font-family: 300;
+  font-size: 1.6rem;
+}
+
+.checkbox {
+  width: 2rem;
+  border-radius: 2px;
+  accent-color: #d8d8d8;
+}
+
+.arrow {
+  font-size: 20px;
+  align-self: flex-start;
+  color: #2f3037;
+}
+
+.hr {
+  margin: 2.2rem 0 2rem;
+  border: 0.8px solid rgba(0, 0, 0, 0.2);
+}
+
+.star {
+  font-size: 2rem;
+  margin-right: 0.4rem;
+}
+
+.star-filled {
+  color: #fdd33d;
+}
+
+.star-empty {
+  color: #cdccc8;
+}
+
+.search-results {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4rem;
+}
+
+.model {
+  margin-bottom: 2.4rem;
+}
+
+.product-details {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.product-name {
+  font-weight: 400;
+  font-size: 2rem;
+}
+
+.original-price {
+  text-decoration: line-through;
+  color: rgba(0, 0, 0, 0.4);
+  font-weight: 300;
+  font-size: 2rem;
+  margin-right: 0.5rem;
+}
+
+.discounted-price {
+  color: #6d84ff;
+  font-weight: 600;
+  font-size: 2rem;
+}
+
+.rating-reviews {
+  display: flex;
+  align-items: center;
+}
+
+.reviews {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-size: 1.4rem;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.product-img-container {
+  position: relative;
+}
+
+.heart {
+  font-size: 2.5rem;
+  position: absolute;
+  right: 20px;
+  top: 21px;
+  color: #fff;
+}
+
+.heart.red-heart {
+  color: #d32424;
 }
