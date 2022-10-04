@@ -14,7 +14,7 @@ export default function Modal({ onBckgroundClick }) {
       return;
     }
 
-    onBckgroundClick();
+    onBackgroundClick();
   }
 
   React.useEffect(() => {
