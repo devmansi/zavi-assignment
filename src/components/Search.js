@@ -10,7 +10,7 @@ export default function Search({ onProductSearch }) {
     if (!searchString) {
       return;
     }
-
+    setIsModalOpen(false);
     onProductSearch(searchString);
   }
 
@@ -19,6 +19,7 @@ export default function Search({ onProductSearch }) {
       return;
     }
 
+    setIsModalOpen(false);
     onProductSearch(searchString);
   }
 
