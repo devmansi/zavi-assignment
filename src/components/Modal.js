@@ -3,7 +3,7 @@ import React from "react";
 import Trending from "./TrendingList";
 import Suggestions from "./SuggestionList";
 
-export default function Modal({ onBckgroundClick }) {
+export default function Modal({ onBackgroundClick }) {
   function handleClick(e) {
     if (
       e.target.classList.contains("search-bar") ||
