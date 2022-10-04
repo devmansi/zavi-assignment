@@ -1,14 +1,15 @@
 import React from "react";
 
 import { BsHeartFill, BsHeart } from "react-icons/bs";
+import { ratingsData } from "../data";
 
-export default function Product({ product, ratingList }) {
+export default function Product({ product }) {
   const [isFavourite, setIsFavourite] = React.useState(false);
 
   return (
     <div className="product">
       <div className="product-img-container">
-        <img src={product.imgUrl} className="model" alt="model" />
+        <img src={product.imgUrl} className="product-img " alt="product-img " />
         {isFavourite ? (
           <BsHeartFill
             className="heart red-heart"
@@ -32,7 +33,7 @@ export default function Product({ product, ratingList }) {
           <span className="discounted-price">Rs.{product.discountedPrice}</span>
         </div>
         <div className="rating-reviews">
-          <span>{ratingList[product.rating - 1]}</span>
+          <span>{ratingsData[product.rating - 1]}</span>
           <span className="reviews">({product.noOfReviews})</span>
         </div>
       </div>

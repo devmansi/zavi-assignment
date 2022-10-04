@@ -1,20 +1,12 @@
 import { faker } from "@faker-js/faker";
 import { FaStar } from "react-icons/fa";
 
-const MAX_RATING = 5;
-const MIN_RATING = 1;
+const NUMBER_OF_PRODUCTS = 24;
+const NUMBER_OF_TRENDS = 5;
+const NUMBER_OF_SUGGESTIONS = 5;
 
-const getBrandsName = () => {
-  const brandData = [];
-
-  for (let i = 0; i < 2; i++) {
-    const name = faker.company.name();
-
-    brandData.push({ id: i, name });
-  }
-
-  return brandData;
-};
+const MIN_STAR_RATING = 0;
+const MAX_STAR_RATING = 5;
 
 const getRatings = () => {
   const ratingData = [];
@@ -40,7 +32,7 @@ const getRatings = () => {
 const getTrends = () => {
   const trends = [];
 
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < NUMBER_OF_TRENDS; i++) {
     const imgUrl = faker.image.fashion(180, 240, true);
     const description = faker.commerce.productName();
 
@@ -57,7 +49,7 @@ const getTrends = () => {
 const getSuggestions = () => {
   const suggestions = [];
 
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < NUMBER_OF_SUGGESTIONS; i++) {
     const suggestion = faker.commerce.productName();
 
     suggestions.push(suggestion);
@@ -66,10 +58,10 @@ const getSuggestions = () => {
   return suggestions;
 };
 
-const getProducts = () => {
+export const getProducts = () => {
   const products = [];
 
-  for (let i = 0; i < 20; i++) {
+  for (let i = 0; i < NUMBER_OF_PRODUCTS; i++) {
     const originalPrice = faker.commerce.price(1000, 10000);
     const discountedPrice = faker.commerce.price(100, Number(originalPrice));
 
@@ -78,7 +70,7 @@ const getProducts = () => {
       productName: faker.commerce.productName(),
       originalPrice: originalPrice,
       discountedPrice: discountedPrice,
-      rating: Math.round(Math.random() * (MAX_RATING - MIN_RATING) + MIN_RATING),
+      rating: Math.round(Math.random() * (MAX_STAR_RATING - MIN_STAR_RATING) + MIN_STAR_RATING),
       noOfReviews: Math.floor(Math.random() * 1000 + 1)
     });
   }
@@ -86,7 +78,6 @@ const getProducts = () => {
   return products;
 };
 
-export const brandsData = getBrandsName();
 export const trendsData = getTrends();
 export const suggestionsData = getSuggestions();
 export const productsData = getProducts();

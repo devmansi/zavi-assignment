@@ -3,7 +3,7 @@ import React from "react";
 import Trending from "./TrendingList";
 import Suggestions from "./SuggestionList";
 
-export default function Modal({ onBackgroundClick }) {
+export default function TrendsAndSuggestionsModal({ onBackgroundClick }) {
   function handleClick(e) {
     if (
       e.target.classList.contains("search-bar") ||
@@ -26,9 +26,11 @@ export default function Modal({ onBackgroundClick }) {
   });
 
   return (
-    <div className="trending-popular-modal">
-      <Trending />
-      <Suggestions />
+    <div className="modal">
+      <div className="trending-popular-modal">
+        <Trending />
+        <Suggestions />
+      </div>
     </div>
   );
 }

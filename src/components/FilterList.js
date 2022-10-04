@@ -26,13 +26,7 @@ export default function FilterList({ filterName, list }) {
         {dropDownArrow === "open" && (
           <ul className="filterItems">
             {list.map((item, key) => {
-              return (
-                <FilterItem
-                  name={filterName}
-                  key={item.id || key}
-                  value={item.name || item}
-                />
-              );
+              return <FilterItem />;
             })}
           </ul>
         )}

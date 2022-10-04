@@ -2,14 +2,14 @@ import React from "react";
 
 import Search from "./components/Search";
 import ProductList from "./components/ProductList";
-import { productsData } from "./data";
+import { getProducts } from "./data";
 import Logo from "./Logo";
 
 export default function App() {
   const [products, setProducts] = React.useState([]);
 
-  function onProductSearch() {
-    setProducts(productsData);
+  function handleProductSearch() {
+    setProducts(getProducts());
   }
 
   return (
@@ -20,9 +20,9 @@ export default function App() {
         }`}
       >
         <Logo />
-        <Search onProductSearch={onProductSearch} />
+        <Search onProductSearch={handleProductSearch} />
       </div>
-      {products.length > 0 && <ProductList product={products} />}
+      {products.length > 0 && <ProductList products={products} />}
     </main>
   );
 }

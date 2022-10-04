@@ -1,25 +1,36 @@
 import React from "react";
 
-import { brandsData, ratingsData } from "../data";
-import FilterList from "./FilterList";
+import Filter from "./Filter";
+import { ratingsData } from "../data";
 import Product from "./Product";
 
-export default function ProductList({ product }) {
+export default function ProductList({ products }) {
+  if (products.length < 0) {
+    return;
+  }
+
   const priceRange = ["Under 500", "1000 to 3000"];
+
+  let brandsData = products.map((product) => {
+    return product.brandName;
+  });
+  brandsData = [...new Set(brandsData)];
+
+  const filter = {
+    brands: brandsData,
+    "price range": priceRange,
+    ratings: ratingsData,
+  };
 
   return (
     <div className="product-page">
       <div className="product-filters-container">
         <h2 className="sidebar-heading">Search results</h2>
         <article className="product-article">
-          <section className="filter-section">
-            <FilterList filterName="brand" list={brandsData} />
-            <FilterList filterName="price range" list={priceRange} />
-            <FilterList filterName="ratings" list={ratingsData} />
-          </section>
+          <Filter filter={filter} />
           <section className="search-results">
-            {product.map((product) => {
-              return <Product product={product} ratingList={ratingsData} />;
+            {products.map((product) => {
+              return <Product product={product} />;
             })}
           </section>
         </article>

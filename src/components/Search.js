@@ -1,34 +1,35 @@
 import React from "react";
 import { FiSearch } from "react-icons/fi";
-import Modal from "./Modal";
+import TrendsAndSuggestionsModal from "./TrendsAndSuggestionsModal";
 
 export default function Search({ onProductSearch }) {
   const [searchString, setSearchString] = React.useState("");
-  const [isModalOpen, setIsModalOpen] = React.useState(false);
+  const [isTrendsAndSuggestionsModalOpen, setIsTrendsAndSuggestionsModalOpen] =
+    React.useState(false);
 
   function search() {
     if (!searchString) {
       return;
     }
-    setIsModalOpen(false);
+
+    setIsTrendsAndSuggestionsModalOpen(false);
     onProductSearch(searchString);
   }
 
   function SearchByEnter(e) {
-    if (!(e.key === "Enter") || !searchString) {
+    if (!(e.key === "Enter")) {
       return;
     }
 
-    setIsModalOpen(false);
-    onProductSearch(searchString);
+    search();
   }
 
-  function showModal() {
-    setIsModalOpen(true);
+  function showTrendsAndSuggestionsModal() {
+    setIsTrendsAndSuggestionsModalOpen(true);
   }
 
   function handleBackgroundClick() {
-    setIsModalOpen(false);
+    setIsTrendsAndSuggestionsModalOpen(false);
   }
 
   return (
@@ -42,14 +43,14 @@ export default function Search({ onProductSearch }) {
           onChange={(e) => {
             setSearchString(e.target.value);
           }}
-          onClick={showModal}
+          onClick={showTrendsAndSuggestionsModal}
           onKeyPress={SearchByEnter}
         />
         <FiSearch className="search-icon" onClick={search} />
       </div>
-      <div className="home-page">
-        {isModalOpen && <Modal onBackgroundClick={handleBackgroundClick} />}
-      </div>
+      {isTrendsAndSuggestionsModalOpen && (
+        <TrendsAndSuggestionsModal onBackgroundClick={handleBackgroundClick} />
+      )}
     </>
   );
 }

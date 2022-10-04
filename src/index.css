@@ -26,9 +26,10 @@ body {
   background-size: cover;
 }
 
-.home-page {
-  padding-bottom: 4.8rem;
+.modal {
   position: relative;
+  display: flex;
+  justify-content: center;
 }
 
 .logo-searchbar-container {
@@ -87,7 +88,7 @@ body {
 
 .trending-popular-modal {
   padding: 4rem 4rem 8.8rem;
-  margin: 1.7rem 24.4rem 0;
+  margin: 1.7rem 24.4rem 4.8rem;
   background-color: #fff;
   border-radius: 4px;
   box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.25);
@@ -95,7 +96,7 @@ body {
   z-index: 1;
 }
 
-.productary-heading {
+.secondary-heading {
   margin-bottom: 2.4rem;
   font-weight: 500;
   font-size: 2.2rem;
@@ -236,7 +237,7 @@ body {
   gap: 4rem;
 }
 
-.model {
+.product-img {
   margin-bottom: 2.4rem;
 }
 
