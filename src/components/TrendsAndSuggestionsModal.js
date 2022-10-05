@@ -17,9 +17,16 @@ export default function TrendsAndSuggestionsModal({ onBackgroundClick }) {
     onBackgroundClick();
   }
 
+  /**
+   * it is used for all the work that needs to be done outside of the component,
+   * the return function will run when the component will unmount.
+   * if you dont use useEffect then you'll be adding event listener
+   * on the window evertime the component rerenders and that will be taking memory unnecessarily.
+   */
   React.useEffect(() => {
     window.addEventListener("click", handleClick);
 
+    // it will be invoked when the component unmounts
     return () => {
       window.removeEventListener("click", handleClick);
     };

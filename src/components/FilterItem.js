@@ -1,25 +1,18 @@
 import React from "react";
 
-export default function FilterItem({ name, value }) {
-  const [isChecked, setIsChecked] = React.useState(false);
-
-  function handleChange() {
-    setIsChecked(!isChecked);
-  }
-
+export default function FilterItem({ type, value, displayValue, applied }) {
   return (
     <li>
       <input
         type="checkbox"
-        id={name}
+        id={type}
         className="checkbox"
-        name={name}
+        name={type}
         value={value}
-        checked={isChecked}
-        onChange={handleChange}
+        checked={applied}
       />
-      <label forhtml={name} className="filter-item">
-        {value}
+      <label forhtml={type} className="filter-item">
+        {displayValue}
       </label>
     </li>
   );
